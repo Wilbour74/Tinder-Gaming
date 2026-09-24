@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon site</title>
-</head>
-
-<body>
-    <h1>Bonjour !</h1>
-    <p>Bienvenue sur l'application</p>
-</body>
-</html>
+{% extends 'base.html.twig' %}
+{% block title %}À propos{% endblock %}
+{% block body %}
+    <div class="card border-0 shadow-sm">
+        <div class="card-body p-4">
+            <h1 class="card-title h2">Bonjour !</h1>
+            <p class="card-text text-secondary mb-0">Bienvenue sur l'application.</p>
+        </div>
+    </div>
+{% endblock %}

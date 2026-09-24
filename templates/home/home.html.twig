@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% import 'macros/wrestler_card.html.twig' as utils %}
+{% set wrestler = { 'name': 'John Cena', 'age': 44, 'poids': 115, 'champion': true} %}
+{% block title %}Utilisateur{% endblock %}
+{% block body %}
+    <div class="p-5 mb-4 bg-white rounded-3 shadow-sm border">
+        <h1 class="display-5 fw-bold">Bienvenue sur la home page</h1>
+        <p class="lead mb-0">Vous pouvez naviguer vers les différentes pages de l'application en utilisant le menu.</p>
+        <div class="mt-4">
+            {{ utils.wrestler_card(wrestler) }}
+        </div>
+    </div>
+{% endblock %}

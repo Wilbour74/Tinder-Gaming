@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste des catcheurs{% endblock %}
+{% import 'macros/wrestler_card.html.twig' as utils %}
+{% block body %}
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <p class="text-uppercase text-secondary small fw-semibold mb-1">Roster</p>
+            <h1 class="h2 mb-0">Liste des catcheurs</h1>
+        </div>
+        <span class="badge text-bg-dark rounded-pill">{{ wrestlers|length }} athlètes</span>
+    </div>
+    <div class="row g-3">
+    {% for wrestler in wrestlers|sort((a, b) => b.champion <=> a.champion) %}
+        {{ utils.wrestler_card(wrestler) }}
+    {% endfor %}
+    </div>
+{% endblock %}

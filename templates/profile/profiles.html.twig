@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil enregistré{% endblock %}
+
+{% block body %}
+    <div class="card border-0 shadow-sm mx-auto" style="max-width: 900px;">
+        <div class="card-body p-4 p-md-5">
+            <h1 class="h3 mb-4">Contenu du formulaire</h1>
+
+            {% if profile is not null %}
+                <h2 class="h5 mb-3">Dernier profil soumis</h2>
+                <ul class="list-group list-group-flush mb-4">
+                    <li class="list-group-item"><strong>Nom :</strong> {{ profile.name }}</li>
+                    <li class="list-group-item"><strong>Description :</strong> {{ profile.description }}</li>
+                    <li class="list-group-item"><strong>Relation sérieuse :</strong> {{ profile.seriousRelationship ? 'Oui' : 'Non' }}</li>
+                    <li class="list-group-item"><strong>Date de naissance :</strong> {{ profile.birthdate|date('d/m/Y') }}</li>
+                    <li class="list-group-item"><strong>Email :</strong> {{ profile.email }}</li>
+                </ul>
+            {% endif %}
+
+            <h2 class="h5 mb-3">Profils existants</h2>
+            <div class="list-group">
+                {% for existingProfile in existingProfiles %}
+                    <div class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <strong>{{ existingProfile.name }}</strong>
+                            <span class="badge bg-secondary">{{ existingProfile.seriousRelationship ? 'Relation sérieuse' : 'Pas de relation sérieuse' }}</span>
+                        </div>
+                        <p class="mb-1">{{ existingProfile.description }}</p>
+                        <small class="text-muted d-block">{{ existingProfile.birthdate|date('d/m/Y') }} · {{ existingProfile.email }}</small>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="mt-4">
+                <a href="{{ path('new_profile') }}" class="btn btn-primary">Créer un nouvel élément</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

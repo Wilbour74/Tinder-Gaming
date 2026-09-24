@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon site</title>
-</head>
+{% extends 'base.html.twig' %}
+{% block title %}Utilisateur{% endblock %}
 
-<body>
-    <h1>Bonjour {{ name }} </h1>
-</body>
-</html>
+
+{% block body %}
+    <div class="card border-0 shadow-sm text-center">
+        <div class="card-body p-5">
+            <p class="text-uppercase text-secondary small fw-semibold mb-2">Message personnalisé</p>
+            <h1 class="display-6 fw-bold mb-0">Bonjour {{ name }}</h1>
+            
+        </div>
+        {{ utils.wrestler_card(wrestler) }}
+    </div>
+{% endblock %}
